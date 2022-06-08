@@ -24,18 +24,15 @@ public class Main {
             int[] arg;
             switch (inputStr) {
                 case "1":
-                    logger.log("Операция сумма");
-                    arg = operands(logger);
+                    arg = operands("\"Сумма\"", logger);
                     logger.log("Результат вычисления суммы: " + intsCalc.sum(arg[0], arg[1]) + "\n");
                     break;
                 case "2":
-                    logger.log("Операция произведение");
-                    arg = operands(logger);
+                    arg = operands("\"Произведение\"", logger);
                     logger.log("Результат вычисления произведения: " + intsCalc.mult(arg[0], arg[1]) + "\n");
                     break;
                 case "3":
-                    logger.log("Операция возведения в степень");
-                    arg = operands(logger);
+                    arg = operands("\"Возведение в степень\"", logger);
                     logger.log("Результат вычисления возведения в степень: " + intsCalc.pow(arg[0], arg[1]) + "\n");
                     break;
                 case "4":
@@ -64,7 +61,8 @@ public class Main {
                 "5. Выход";
     }
 
-    private static int[] operands(Logger logger) {
+    private static int[] operands(String nameOperation, Logger logger) {
+        logger.log("Операция " + nameOperation);
         logger.log("Введите первый и второй операнд через пробел:");
         int[] arg = null;
         try {
